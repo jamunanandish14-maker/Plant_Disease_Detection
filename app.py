@@ -30,8 +30,5 @@ labels = {
 if st.button("Predict"):
     data = np.array([[f1, f2, f3]])
     pred = model.predict(data)
-    st.success(f"Disease: {labels[pred[0]]}")
-
-disease = labels[pred[0]]
-
-st.success(f"Disease: {disease}")
+    disease = labels[int(pred[0])]
+    st.success(f"Disease: {disease}")
