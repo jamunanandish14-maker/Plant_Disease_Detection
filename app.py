@@ -21,9 +21,16 @@ f1 = st.number_input("Feature 1")
 f2 = st.number_input("Feature 2")
 f3 = st.number_input("Feature 3")
 
+labels = {
+    0: "Healthy",
+    1: "Early Blight",
+    2: "Late Blight"
+}
+
 if st.button("Predict"):
     data = np.array([[f1, f2, f3]])
-    ppred = model.predict(data)
+    pred = model.predict(data)
+    st.success(f"Disease: {labels[pred[0]]}")
 
 disease = labels[pred[0]]
 
