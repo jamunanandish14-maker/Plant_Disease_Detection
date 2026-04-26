@@ -23,5 +23,8 @@ f3 = st.number_input("Feature 3")
 
 if st.button("Predict"):
     data = np.array([[f1, f2, f3]])
-    pred = model.predict(data)
-    st.success(f"Cluster: {pred[0]}")
+    ppred = model.predict(data)
+
+disease = labels[pred[0]]
+
+st.success(f"Disease: {disease}")
