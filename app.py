@@ -1,10 +1,21 @@
 import streamlit as st
 import numpy as np
-import pickle
-
-model = pickle.load(open("plant_model.pkl","rb"))
+from sklearn.cluster import KMeans
 
 st.title("Plant Disease Detection (KMeans)")
+
+# recreate small demo-trained model
+X = np.array([
+    [5,3,1],
+    [10,8,2],
+    [50,60,55],
+    [80,90,85],
+    [20,25,22],
+    [70,65,68]
+])
+
+model = KMeans(n_clusters=3, random_state=42)
+model.fit(X)
 
 f1 = st.number_input("Feature 1")
 f2 = st.number_input("Feature 2")
